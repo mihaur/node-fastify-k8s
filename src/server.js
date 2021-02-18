@@ -4,9 +4,9 @@ import app from './app'
 
 const start = async () => {
   try {
-    const fastify = app({ logger: true })
+    const fastify = await app({ logger: true })
     await fastify.ready()
-    fastify.listen(fastify.config.PORT, (err, address) => {
+    fastify.listen(fastify.config.PORT, '0.0.0.0', (err, address) => {
       if (err) console.log(err)
     })
   } catch (err) {
