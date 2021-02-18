@@ -9,7 +9,6 @@ WORKDIR /app
 USER node
 COPY --chown=node:node package.json package-lock*.json ./
 RUN npm ci && npm cache clean --force
-RUN ls -l node_modules/
 COPY --chown=node:node . .
 
 FROM base as dev
