@@ -5,14 +5,13 @@
 ![GitHub Actions CI][github-action-nodejs-ci-url]
 [![Coverage Status][coveralls-badge-url]][coveralls-repo-url]
 
-Node.js API server/backend build with [fastify][fastify-site-url] and [MongoDB][mongodb-uri] as a database for persisting data, GitHub Actions build, esm, minimal tooling (nodemon, standard), and tap tests. Can be used as a template to quickly bootstrap yor Node.js API server project.
+Node.js API server/backend build with [fastify][fastify-site-url] and [MongoDB][mongodb-uri] as a database for persisting data, GitHub Actions build, minimal tooling (nodemon, standard), and tap tests. Can be used as a template to quickly bootstrap yor Node.js API server project.
 
 ## All features
 * automatic reloading using [nodemon][nodemon-url]
 * load .env to environment and validate using [fastify-env][fastify-env-url] and [dotenv][dotenv-url]
 * linting and fixing using [standard][standard-url]
 * git pre-commit hooks using [pre-commit][pre-commit-url]
-* ESM modules using [esm][esm-url]
 * unit and integration tests with coverage using [tap][tap-url]
 * continuous integration using [Github Actions CI][github-actions-url]
 * code coverage tracking using [coveralls][coveralls-url]
@@ -64,7 +63,6 @@ Run `npm run coverage` to generate HTML test coverage report. Browser is opened 
 [coveralls-badge-url]: https://coveralls.io/repos/github/mihaur/node-fastify-template/badge.svg?branch=master
 [dependabot-url]: https://dependabot.com/
 [dotenv-url]: https://github.com/motdotla/dotenv
-[esm-url]: https://github.com/standard-things/esm
 [fastify-url]: https://github.com/fastify/fastify
 [fastify-site-url]: fastify.io/
 [fastify-env-url]: https://github.com/fastify/fastify-env

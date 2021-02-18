@@ -15,7 +15,7 @@ FROM base as dev
 ENV NODE_ENV=development
 ENV PATH=/app/node_modules/.bin:$PATH
 RUN npm install --only=development
-CMD ["nodemon", "-r", "esm", "./src/server.js", "--inspect=0.0.0.0:9229"]
+CMD ["nodemon", "./src/server.js", "--inspect=0.0.0.0:9229"]
 
 FROM base as test
 ENV NODE_ENV=development
@@ -26,4 +26,4 @@ CMD ["npm", "run", "test"]
 
 FROM base as prod
 ENTRYPOINT ["/tini", "--"]
-CMD ["node", "-r", "esm", "./src/server.js"]
+CMD ["node", "./src/server.js"]
