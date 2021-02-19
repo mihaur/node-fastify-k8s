@@ -1,6 +1,6 @@
 {
   "name": "node-fastify-k8s",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node.js API server based on fastify/MongoDB project template.",
   "main": "src/server.js",
   "type": "module",
