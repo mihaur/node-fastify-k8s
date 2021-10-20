@@ -48,7 +48,7 @@
   "dependencies": {
     "fastify": "^3.22.1",
     "fastify-env": "^2.1.1",
-    "fastify-mongodb": "^4.1.0",
+    "fastify-mongodb": "^4.1.1",
     "fastify-plugin": "^3.0.0"
   },
   "nodemonConfig": {
