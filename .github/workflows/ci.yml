@@ -82,6 +82,6 @@ jobs:
       pull-requests: write
       contents: read
     steps:
-      - uses: fastify/github-action-merge-dependabot@v3.0.2
+      - uses: fastify/github-action-merge-dependabot@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
