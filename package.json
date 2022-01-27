@@ -39,7 +39,7 @@
     "c8": "^7.11.0",
     "license-checker": "^25.0.1",
     "nodemon": "^2.0.15",
-    "pino-pretty": "^7.5.0",
+    "pino-pretty": "^7.5.1",
     "pre-commit": "^1.2.2",
     "snazzy": "^9.0.0",
     "standard": "*",
