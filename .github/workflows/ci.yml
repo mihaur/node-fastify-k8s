@@ -35,7 +35,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: super-lint Code Base
-      uses: github/super-linter@v4.9.0
+      uses: github/super-linter@v4.9.2
       env:
         VALIDATE_ALL_CODEBASE: false
         DEFAULT_BRANCH: master
