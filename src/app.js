@@ -1,17 +1,10 @@
-import Fastify from 'fastify'
-
-import fastifyEnv from 'fastify-env'
-import fastifyMongodb from 'fastify-mongodb'
+import services from './services/index.js'
 
 import * as config from './config.js'
 
-import services from './services/index.js'
-
-async function buildFastify (options = {}) {
-  const fastify = Fastify(options)
-
-  await fastify.register(fastifyEnv, config.envOptions)
-  fastify.register(fastifyMongodb, {
+export default async function (fastify, opts) {
+  await fastify.register(import('@fastify/env'), config.envOptions)
+  fastify.register(import('@fastify/mongodb'), {
     url: fastify.config.MONGODB_URI
   })
 
@@ -19,5 +12,3 @@ async function buildFastify (options = {}) {
 
   return fastify
 }
-
-export default buildFastify
