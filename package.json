@@ -44,7 +44,7 @@
     "pre-commit": "^1.2.2",
     "snazzy": "^9.0.0",
     "standard": "*",
-    "tap": "^16.2.0"
+    "tap": "^16.3.0"
   },
   "dependencies": {
     "@fastify/env": "^3.0.0",
