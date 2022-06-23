@@ -39,7 +39,7 @@
     "c8": "^7.11.3",
     "fastify-cli": "^4.1.1",
     "license-checker": "^25.0.1",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.18",
     "pino-pretty": "^8.1.0",
     "pre-commit": "^1.2.2",
     "snazzy": "^9.0.0",
