@@ -37,7 +37,7 @@
   "license": "Apache-2.0 WITH LLVM-exception",
   "devDependencies": {
     "c8": "^7.11.3",
-    "fastify-cli": "^4.1.1",
+    "fastify-cli": "^4.2.0",
     "license-checker": "^25.0.1",
     "nodemon": "^2.0.18",
     "pino-pretty": "^8.1.0",
