@@ -1,3 +1,4 @@
+---
 name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
@@ -12,11 +13,11 @@ categories:
       - 'bugfix'
       - 'bug'
   - title: '🧰 Maintenance'
-    labels: 
+    labels:
       - 'chore'
       - 'build'
   - title: '📚 Docs'
-    labels: 
+    labels:
       - 'docs'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 version-resolver:

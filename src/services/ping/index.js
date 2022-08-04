@@ -10,7 +10,7 @@ export default async function routes (fastify, options) {
     schema: pingSchema,
     handler: async function (request, reply) {
       const response = { ping: 'pong' }
-      await logAccess(response, fastify.mongo.db.collection('access-log'))
+      await logAccess(response, fastify.log, fastify.mongo.db.collection('access-log'))
       await sleep(request.query.delay)
       reply.send(response)
     }
@@ -22,7 +22,7 @@ export default async function routes (fastify, options) {
     schema: pingSchema,
     handler: async function (request, reply) {
       const response = { ping: request.params.response }
-      await logAccess(response, fastify.mongo.db.collection('access-log'))
+      await logAccess(response, fastify.log, fastify.mongo.db.collection('access-log'))
       await sleep(request.query.delay)
       reply.send(response)
     }
