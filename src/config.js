@@ -1,10 +1,11 @@
 export const envOptions = {
-  dotenv: true, // { debug: true },
+  // dotenv: false,
+  dotenv: { override: true, debug: true },
   schema: {
     type: 'object',
     required: ['MONGODB_URI'],
     properties: {
-      PORT: {
+      FASTIFY_PORT: {
         type: 'string',
         default: 3000
       },

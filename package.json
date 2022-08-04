@@ -2,15 +2,16 @@
   "name": "node-fastify-k8s",
   "version": "1.0.4",
   "description": "Node.js API server based on fastify/MongoDB project template.",
-  "main": "./src/server.js",
-  "exports": "./src/server.js",
+  "main": "./src/app.js",
+  "exports": "./src/app.js",
   "type": "module",
   "engines": {
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "fastify start --log-level info --watch src/app.js | pino-pretty -t",
-    "debug": "fastify start --debug --log-level info --watch src/app.js | pino-pretty -t",
+    "start": "fastify start --log-level info --pretty-logs src/app.js",
+    "develop": "fastify start --log-level info --pretty-logs --watch src/app.js",
+    "debug": "fastify start --debug --log-level info --pretty-logs --watch src/app.js",
     "lint": "standard --verbose | snazzy && echo 'JavaScript Standard Style lint complete.'",
     "lint:fix": "standard --verbose --fix | snazzy && echo 'JavaScript Standard Style fix complete.'",
     "unit": "c8 --check-coverage --lines 100 tap --no-coverage test/*.test.js",
@@ -37,30 +38,17 @@
   "license": "Apache-2.0 WITH LLVM-exception",
   "devDependencies": {
     "c8": "^7.12.0",
-    "fastify-cli": "^4.4.0",
     "license-checker": "^25.0.1",
-    "nodemon": "^2.0.19",
-    "pino-pretty": "^8.1.0",
     "pre-commit": "^1.2.2",
     "snazzy": "^9.0.0",
     "standard": "*",
     "tap": "^16.3.0"
   },
   "dependencies": {
-    "@fastify/env": "^3.0.0",
-    "@fastify/mongodb": "^5.0.0",
-    "fastify": "^3.29.0",
+    "fastify-cli": "^4.4.0",
+    "@fastify/env": "^4.0.0",
+    "@fastify/mongodb": "^6.0.1",
+    "fastify": "^4.3.0",
     "fastify-plugin": "^4.0.0"
-  },
-  "nodemonConfig": {
-    "verbose": false,
-    "watch": [
-      ".",
-      ".env"
-    ],
-    "ignore": [
-      "*.test.js"
-    ],
-    "delay": "2500"
   }
 }

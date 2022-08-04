@@ -1,0 +1,41 @@
+###
+## for local development, wait for db to pass healthcheck before we start node
+## also, build custom dockerfile to the develop stage
+###
+
+services:
+  node:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      # build to the stage named dev
+      target: develop
+    environment:
+      - MONGODB_URI=mongodb://db:27017/test-db
+    volumes:
+      - /dev/null:/app/.env # TODO: when fastify-cli loads .env it overwrites entries in docker ENVIRONMENT
+      - .:/app
+    ports:
+      # use docker compose ps to see which host port is used
+      - "3000:3000"
+      - "9320:9320"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mongo:5
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/var/lib/mongodb:rw
+    # we need to check health here, so that docker-compose will wait for a healthy mongo before it starts node
+    healthcheck:
+      test: "[ `echo 'db.runCommand(\"ping\").ok' | mongo localhost/example-database --quiet` ] && echo 0 || echo 1"
+      interval: 5s
+      start_period: 10s
+      timeout: 4s
+      retries: 3
+
+volumes:
+  mongo-data:
