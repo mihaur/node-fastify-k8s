@@ -2,7 +2,7 @@ FROM node:18-slim as base
 ENV NODE_ENV=production
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    tini@0.19.0 \
+    tini=0.19.0-1 \
     && rm -rf /var/lib/apt/lists/*
 EXPOSE 3000
 RUN mkdir /app && chown -R node:node /app
@@ -43,13 +43,13 @@ RUN case ${TARGETPLATFORM} in \
     "linux/arm/v7") ARCH=ARM    ;; \
   esac \
   && apt-get -qq update \
-  && apt-get -qq install -y ca-certificates wget --no-install-recommends \
+  && apt-get -qq install -y ca-certificates=20210119 wget=1.21-1+deb11u1 --no-install-recommends \
   && wget -O trivy.deb -qSL https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-${ARCH}.deb \
   && dpkg -i trivy.deb
 RUN trivy rootfs --severity "HIGH,CRITICAL" --exit-code 1 --no-progress --security-checks vuln /
+USER node
 
 # clean production image
 FROM source as prod
-USER node
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/app/node_modules/.bin/fastify", "start", "--log-level", "info", "src/app.js"]
