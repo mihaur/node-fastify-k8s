@@ -14,9 +14,9 @@
     "debug": "fastify start --debug --log-level info --pretty-logs --watch src/app.js",
     "lint": "standard --verbose | snazzy && echo 'JavaScript Standard Style lint complete.'",
     "lint:fix": "standard --verbose --fix | snazzy && echo 'JavaScript Standard Style fix complete.'",
-    "unit": "c8 --check-coverage --lines 100 tap --no-coverage test/*.test.js",
-    "coverage": "c8 report --reporter=html && npx http-server -o coverage/",
-    "coverage:ci": "c8 report --reporter=text --reporter=lcovonly",
+    "unit": "tap --show-full-coverage test/*.test.js",
+    "coverage": "tap report --coverage-report=html",
+    "coverage:ci": "tap report --coverage-report=lcovonly",
     "test": "npm run lint && npm run unit",
     "license-checker": "license-checker --production --onlyAllow='Apache-2.0;Apache-2.0 WITH LLVM-exception;MIT;ISC;BSD-3-Clause;BSD-2-Clause'",
     "super-linter": "docker run -e RUN_LOCAL=true -v $PWD:/tmp/lint github/super-linter"
@@ -37,12 +37,11 @@
   "author": "Miha Urbanija <miha.urbanija@gmail.com>",
   "license": "Apache-2.0 WITH LLVM-exception",
   "devDependencies": {
-    "c8": "^8.0.1",
     "license-checker": "^25.0.1",
     "pre-commit": "^1.2.2",
     "snazzy": "^9.0.0",
     "standard": "*",
-    "tap": "^16.3.8"
+    "tap": "^18.4.5"
   },
   "dependencies": {
     "fastify-cli": "^5.8.0",

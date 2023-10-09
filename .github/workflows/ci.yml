@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [16, 18]
+        node-version: [18, 20]
         os: [ubuntu-latest]
     steps:
       - name: Checkout repo
@@ -58,6 +58,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: run-${{ matrix.os }}-${{ matrix.node-version }}
+          file: .tap/report/lcov.info
           parallel: true
 
   coverage:
